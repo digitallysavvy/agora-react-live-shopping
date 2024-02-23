@@ -18,6 +18,10 @@ export const getFirebaseApp = () => {
   return firebaseApp
 }
 
+export const logout = () => {
+  firebaseAuthInstance.signOut()
+}
+
 // Initialize Firebase
 export const initFirebase = () => {
   firebaseApp = initializeApp(firebaseConfig, 'Agora-Live-Shopping')
