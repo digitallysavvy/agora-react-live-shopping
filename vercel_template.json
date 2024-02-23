@@ -43,9 +43,6 @@
       ]
     }
   ],
-  "experimental": {
-    "rewrites": true
-  },
   "watch": [
     "src/**",
     "package*.json"
