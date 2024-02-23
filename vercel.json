@@ -9,7 +9,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/"
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -31,6 +31,5 @@
       ]
     }
   ],
-  "framework": "react",
   "buildCommand": "npm run build"
 }
