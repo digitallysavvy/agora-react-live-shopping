@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "/src",
+      "use": "@vercel/node"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  // Only embed env vars if repo is private - othewise remove this key and add them through the vercel UI
+  "env": {
+    "VITE_AGORA_APP_ID": "",
+    "VITE_FIREBASE_API_KEY": "",
+    "VITE_FIREBASE_AUTH_DOMAIN": "",
+    "VITE_FIREBASE_PROJECT_ID": "",
+    "VITE_FIREBASE_STORAGE_BUCKET": "",
+    "VITE_FIREBASE_MESSAGING_SENDER_ID": "",
+    "VITE_FIREBASE_APP_ID": "",
+    "VITE_FIREBASE_MEASUREMENT_ID": "",
+    "VITE_GOOGLE_CLIENT_ID": ""
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; object-src 'none'; font-src 'self' https://fonts.gstatic.com; frame-src 'none'; connect-src 'self'; base-uri 'self'"
+        }
+      ]
+    }
+  ],
+  "experimental": {
+    "rewrites": true
+  },
+  "watch": [
+    "src/**",
+    "package*.json"
+  ],
+  "redirects": [],
+  "buildCommand": "npm run build"
+}
