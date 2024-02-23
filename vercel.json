@@ -11,6 +11,5 @@
       "source": "/(.*)",
       "destination": "/"
     }
-  ],
-  "buildCommand": "npm run build"
+  ]
 }
