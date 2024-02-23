@@ -43,10 +43,6 @@
       ]
     }
   ],
-  "watch": [
-    "src/**",
-    "package*.json"
-  ],
-  "redirects": [],
+  "framework": "react",
   "buildCommand": "npm run build"
 }
