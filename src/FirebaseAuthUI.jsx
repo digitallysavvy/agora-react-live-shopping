@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { auth } from './firebase-config'
-import { GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider } from 'firebase/auth'
+import { GoogleAuthProvider, EmailAuthProvider, FacebookAuthProvider, TwitterAuthProvider } from 'firebase/auth'
 import 'firebaseui/dist/firebaseui.css'
 import * as firebaseui from 'firebaseui'
 
@@ -38,6 +38,12 @@ const FirebaseAuthUI = () => {
       // {
       //   provider: 'apple.com'
       // },
+      {
+        provider: EmailAuthProvider.PROVIDER_ID,
+        requireDisplayName: true,
+        signInMethod: 'password'
+      },
+      firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
     ],
     'tosUrl': 'https://www.agora.io/en/terms-of-service/',
     'privacyPolicyUrl': 'https://www.agora.io/en/privacy-policy/',
@@ -49,8 +55,10 @@ const FirebaseAuthUI = () => {
 
   useEffect(() =>{
     const initializeFirebaseUI = () => {
+      console.log('initialize FirebaseUI')
       if(!uiRef.current) {
         uiRef.current = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth)
+        console.log(`uiRef.current: ${uiRef.current}`)
       }
       // Start FirebaseUI Auth
       uiRef.current.start('#auth-container', uiConfig)  

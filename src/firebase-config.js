@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app"
-import { getAuth } from "firebase/auth"
+import { getAuth, signInAnonymously } from "firebase/auth"
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -11,6 +11,21 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
+let firebaseApp = null
+let firebaseAuthInstance = null 
+
+export const getFirebaseApp = () => {
+  return firebaseApp
+}
+
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
-export const auth = getAuth(app)
+export const initFirebase = () => {
+  firebaseApp = initializeApp(firebaseConfig, 'Agora-Live-Shopping')
+  firebaseAuthInstance = getAuth(firebaseApp)
+
+  console.log('Firebase initialized:', firebaseApp.name)
+
+  return firebaseApp
+}
+
+export const auth = () => firebaseAuthInstance
