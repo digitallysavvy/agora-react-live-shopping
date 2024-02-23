@@ -29,7 +29,10 @@ const FirebaseAuthUI = () => {
       // TwitterAuthProvider.PROVIDER_ID,
       {
         provider: GoogleAuthProvider.PROVIDER_ID,
-        clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID
+        clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+        customParameters: {
+          prompt: 'select_account'
+        }
       },
 
       {
@@ -65,8 +68,6 @@ const FirebaseAuthUI = () => {
     if(getFirebaseApp()){
       initializeFirebaseUI()
     }
-
-
     // Clean-up
     return () => uiRef.current && uiRef.current.delete()
   }, [])
