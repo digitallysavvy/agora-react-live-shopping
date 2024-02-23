@@ -41,7 +41,7 @@ const FirebaseAuthUI = () => {
       {
         provider: EmailAuthProvider.PROVIDER_ID,
         requireDisplayName: true,
-        signInMethod: 'password'
+        signInMethod: EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD
       },
       firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
     ],
