@@ -31,19 +31,15 @@ const FirebaseAuthUI = () => {
         provider: GoogleAuthProvider.PROVIDER_ID,
         clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID
       },
-      // {
-      //   provider: 'microsoft.com',
-      //   loginHintKey: 'login_hint'
-      // },
-      // {
-      //   provider: 'apple.com'
-      // },
+
       {
         provider: EmailAuthProvider.PROVIDER_ID,
         requireDisplayName: true,
         signInMethod: EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD
       },
-      firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+      {
+        provider: 'apple.com'
+      }
     ],
     'tosUrl': 'https://www.agora.io/en/terms-of-service/',
     'privacyPolicyUrl': 'https://www.agora.io/en/privacy-policy/',
