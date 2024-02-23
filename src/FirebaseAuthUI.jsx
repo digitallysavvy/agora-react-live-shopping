@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { auth } from './firebase-config'
+import { auth, getFirebaseApp } from './firebase-config'
 import { GoogleAuthProvider, EmailAuthProvider, FacebookAuthProvider, TwitterAuthProvider } from 'firebase/auth'
 import 'firebaseui/dist/firebaseui.css'
 import * as firebaseui from 'firebaseui'
@@ -57,12 +57,19 @@ const FirebaseAuthUI = () => {
     const initializeFirebaseUI = () => {
       console.log('initialize FirebaseUI')
       if(!uiRef.current) {
-        uiRef.current = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth)
+        console.log('getUser')
+        uiRef.current = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth())
         console.log(`uiRef.current: ${uiRef.current}`)
       }
       // Start FirebaseUI Auth
       uiRef.current.start('#auth-container', uiConfig)  
     }
+
+    // init the ui once firebase is loaded
+    if(getFirebaseApp()){
+      initializeFirebaseUI()
+    }
+
 
     // Clean-up
     return () => uiRef.current && uiRef.current.delete()
