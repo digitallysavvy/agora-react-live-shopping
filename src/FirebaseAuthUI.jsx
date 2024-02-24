@@ -17,16 +17,16 @@ const FirebaseAuthUI = () => {
       // }
     },
     'signInOptions': [
-      // {
-      //   provider: FacebookAuthProvider.PROVIDER_ID,
-      //   scopes: [
-      //     'public_profile',
-      //     'email',
-      //     'user_likes',
-      //     'user_friends'
-      //   ]
-      // },
-      // TwitterAuthProvider.PROVIDER_ID,
+      {
+        provider: FacebookAuthProvider.PROVIDER_ID,
+        scopes: [
+          'public_profile',
+          'email',
+          'user_likes',
+          'user_friends'
+        ]
+      },
+      TwitterAuthProvider.PROVIDER_ID,
       {
         provider: GoogleAuthProvider.PROVIDER_ID,
         clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID
