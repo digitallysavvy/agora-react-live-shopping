@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { logout } from './firebase-config'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import agoraLogo from '/assets/agora-logo.svg'
 import './App.css'
 
 // Temp Dashboard placeholder using the default vite react page
@@ -11,8 +11,8 @@ function Dashboard () {
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+        <a href="https://agora.io" target="_blank">
+          <img src={agoraLogo} className="logo" alt="Agora logo" />
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
@@ -23,15 +23,15 @@ function Dashboard () {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+      </div>
+      <div className="card">
         <button onClick={() => logout() }>
           Sign out
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        You don't have any sessions scheduled, let's change that. <br/>
+        Use  the button above to schedule your first session.
       </p>
     </>
   )
