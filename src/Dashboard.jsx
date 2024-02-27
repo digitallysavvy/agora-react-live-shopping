@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { logout } from './firebase-config'
 import reactLogo from './assets/react.svg'
-import agoraLogo from '/assets/agora-logo.svg'
+import agoraLogo from './assets/agora-logo.svg'
 import './App.css'
 
 // Temp Dashboard placeholder using the default vite react page
