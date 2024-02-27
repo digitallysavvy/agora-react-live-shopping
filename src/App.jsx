@@ -4,6 +4,7 @@ import { AuthProvider } from './AuthProvider'
 import PrivateLayout from './PrivateLayout'
 import Dashboard from "./Dashboard"
 import FirebaseAuthUI from './FirebaseAuthUI'
+import './App.css'
 
 const App = () => {
   return (
