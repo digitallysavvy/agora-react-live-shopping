@@ -22,7 +22,7 @@ const UserProfile = () => {
                 {currentUser?.email.split("@")[0]}
             </div>
             {showOptions && (
-                <div class="account-button-container" >
+                <div id="account-button-container" >
                     <button class="account-button" onClick={() => console.log('Edit Account Settings')}>Edit Account</button>
                     <button class="account-button" onClick={handleLogout}>Logout</button>
                 </div>

@@ -23,7 +23,7 @@
   color: #888;
 }
 
-.profile-container {
+#profile-container {
   width: 100px;
   color: #000;
   background: #099DFD;
@@ -31,11 +31,10 @@
   height: 100px;
 }
 
-.profile-button {
+#profile-button {
   padding: 35% 0;
 }
-
-.account-button-container {
+#account-button-container {
   position: 'absolute';
   right: 20;
   color: '#000';
