@@ -35,15 +35,15 @@
   padding: 35% 0;
 }
 #account-button-container {
-  position: 'absolute';
+  position: absolute;
   right: 20;
-  color: '#000';
-  background: '#fff';
-  padding: '10px';
-  box-shadow: '0 2px 5px rgba(0,0,0,0.2)';
+  color: #000;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .account-button {
-  display: 'block';
-  margin: '10px 0';
+  display: block;
+  margin: 10px 0;
 }
