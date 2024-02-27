@@ -8,6 +8,7 @@ function Dashboard () {
 
   return (
     <>
+      <Header />
       <div>
         <a href="https://agora.io" target="_blank">
           <img src={agoraLogo} className="logo" alt="Agora logo" />
