@@ -20,8 +20,8 @@ const UserProfile = () => {
         <div>
             <button onClick={() => setShowOptions(!showOptions)}>Profile</button>
             {showOptions && (
-                <div style={{ position: 'absolute', right: 20, background: '#fff', padding: '10px', boxShadow: '0 2px 5px rgba(0,0,0,0.2)' }}>
-                    <p>{currentUser?.email}</p>
+                <div style={{ position: 'absolute', right: 20, color: '#000', display: 'block', background: '#fff', padding: '10px', boxShadow: '0 2px 5px rgba(0,0,0,0.2)' }}>
+                    <p>User: {currentUser?.email}</p>
                     <button onClick={() => console.log('Edit Account Settings')}>Edit Account</button>
                     <button onClick={handleLogout}>Logout</button>
                 </div>
