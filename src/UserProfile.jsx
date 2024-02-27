@@ -1,7 +1,7 @@
-// src/components/UserProfile.jsx
-import React, { useState } from 'react';
-import { useAuth } from '../AuthProvider'; // Adjust the path based on your file structure
-import { logout } from '../firebase-config'; // Adjust the path based on your file structure
+
+import React, { useState } from 'react'
+import { useAuth } from './AuthProvider'
+import { logout } from './firebase-config'
 
 const UserProfile = () => {
     const [showOptions, setShowOptions] = useState(false);
