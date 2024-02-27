@@ -1,5 +1,6 @@
 import React from 'react'
 import { logout } from './firebase-config'
+import Header from './Header'
 import agoraLogo from './assets/agora-logo.svg'
 import './App.css'
 
