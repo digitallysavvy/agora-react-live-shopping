@@ -23,7 +23,7 @@
   color: #888;
 }
 
-#profile-container {
+#account-container {
   width: 85px;
   height: 85px;
   color: #000;
@@ -37,16 +37,23 @@
   cursor: pointer;
   font-size: small;
 }
-#account-button-container {
+
+#account-dropdown {
   position: absolute;
   right: 20px;
   color: #000;
   background: #fff;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  width: 15vw;
 }
 
 .account-button {
-  display: block;
   margin: 10px 0;
+  cursor: pointer;
+}
+
+#account-settings:hover {
+  text-decoration: underline solid #099DFD;
+  color: #099DFD;
 }
