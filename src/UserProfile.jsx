@@ -17,12 +17,14 @@ const UserProfile = () => {
     };
 
     return (
-        <div>
-            <button onClick={() => setShowOptions(!showOptions)}>{currentUser?.email.split("@")[0]}</button>
+        <div id="profile-containter">
+            <div id="profile-button" onClick={() => setShowOptions(!showOptions)}>
+                {currentUser?.email.split("@")[0]}
+            </div>
             {showOptions && (
-                <div style={{ position: 'absolute', right: 20, color: '#000', background: '#fff', padding: '10px', boxShadow: '0 2px 5px rgba(0,0,0,0.2)' }}>
-                    <button style={{display: 'block', margin: '10px 0'}} onClick={() => console.log('Edit Account Settings')}>Edit Account</button>
-                    <button style={{display: 'block', margin: '10px 0'}} onClick={handleLogout}>Logout</button>
+                <div class="account-button-container" >
+                    <button class="account-button" onClick={() => console.log('Edit Account Settings')}>Edit Account</button>
+                    <button class="account-button" onClick={handleLogout}>Logout</button>
                 </div>
             )}
         </div>
