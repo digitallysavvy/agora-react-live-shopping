@@ -17,7 +17,7 @@ const UserProfile = () => {
     };
 
     return (
-        <div id="profile-containter">
+        <div id="profile-container">
             <div id="profile-button" onClick={() => setShowOptions(!showOptions)}>
                 {currentUser?.email.split("@")[0]}
             </div>
