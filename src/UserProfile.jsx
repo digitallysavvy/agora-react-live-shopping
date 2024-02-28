@@ -39,9 +39,10 @@ const UserProfile = () => {
   
 
   return (
-    <div id="account-container" style={{backgroundImage: `url(${user.photoURL}`}} ref={accountRef}>
-      <div id="profile-button" onClick={() => setShowOptions(!showOptions)}>
-        <em>{user.displayName}</em>
+    <div id="account-container" style={user.photoURL && {backgroundImage: `url(${user.photoURL}`}} ref={accountRef}>
+      <div id="profile-button" onClick={() => setShowOptions(!showOptions)}> </div>
+      <div id="profile-name">
+        <strong>{user.displayName}</strong>
       </div>
       {showOptions && (
         <div id="account-dropdown" >

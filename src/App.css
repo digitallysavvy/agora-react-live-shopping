@@ -38,6 +38,11 @@
   font-size: small;
 }
 
+#profile-name {
+  font-size: smaller;
+  padding: 25px 0;
+}
+
 #account-dropdown {
   position: absolute;
   right: 20px;
