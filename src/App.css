@@ -23,24 +23,19 @@
   color: #888;
 }
 
-#account-container {
+#profile-button {
   width: 85px;
   height: 85px;
   color: #000;
   background: #099DFD;
   border-radius: 100%;
-
-}
-
-#profile-button {
-  padding: 35% 0;
   cursor: pointer;
   font-size: small;
 }
 
 #profile-name {
   font-size: smaller;
-  padding: 25px 0;
+  margin: 85px 0 0;
 }
 
 #account-dropdown {
