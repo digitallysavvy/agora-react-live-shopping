@@ -60,7 +60,7 @@ const ScheduleSessionForm = () => {
 
   return(
     <form onSubmit={handleSubmit}>
-      <DatePicker selected={selectedDate} onChange={ date => selectedDate(date) } />
+      <DatePicker selected={selectedDate} onChange={ date => setSelectedDate(date) } />
       <TimePicker value={selectedTime} onChange={setSelectedTime} />
       <TimezoneSelect value={selectedTimezone} onChange={setSelectedTimezone} />
       <TextField 
