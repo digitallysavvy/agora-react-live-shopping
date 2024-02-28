@@ -24,6 +24,7 @@ const UserProfile = () => {
   }
 
   useEffect(() => {
+    console.log(`User Photo URL:${user.photoURL}`)
     const handleClickOutside = (event) => {
       if(accountRef.current && !accountRef.current.contains(event.target)){
         setShowOptions(false) // Hide the options if users click outside this component
@@ -35,6 +36,7 @@ const UserProfile = () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [accountRef])
+  
 
   return (
     <div id="account-container" ref={accountRef}>

@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React from 'react'
 import agoraLogo from './assets/agora-logo.svg'
-import UserProfile from './UserProfile';
+import UserProfile from './UserProfile'
 
 const Header = () => {
   return (
@@ -12,7 +12,7 @@ const Header = () => {
       </nav>
       <UserProfile />
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
