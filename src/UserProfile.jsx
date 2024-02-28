@@ -30,7 +30,7 @@ const UserProfile = () => {
       </div>
       {showOptions && (
         <div id="account-dropdown" >
-          <div id="account-settings" class="account-button" onClick={() => console.log('Edit Account Settings')}>Edit Account</div>
+          {/* <div id="account-settings" class="account-button" onClick={() => console.log('Edit Account Settings')}>Edit Account</div> */}
           <button id="logout" class="account-button" onClick={handleLogout}>Logout</button>
         </div>
       )}

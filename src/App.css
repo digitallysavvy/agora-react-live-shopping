@@ -5,9 +5,16 @@
   text-align: center;
 }
 
+header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 20px; 
+  background: #f0f0f0; 
+}
+
 .logo {
-  height: 3.25em;
-  padding: 0 1.5em;
+  height: 3em;
   will-change: filter;
   transition: filter 300ms;
 }
