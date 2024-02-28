@@ -2,14 +2,22 @@
 import React from 'react'
 import agoraLogo from './assets/agora-logo.svg'
 import UserProfile from './UserProfile'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const Header = ({ displayMenu = true}) => {
+  const navigate = useNavigate()
+
   return (
     <header>
       <img src={agoraLogo} className="logo" alt="Agora logo" />
       <nav>
         {displayMenu && (
-          <button>Schedule Session</button>
+          <button
+            variant='contained'
+            onClick={ () => navigate('/schedule') }
+          >
+            Schedule Session
+          </button>
         )}
       </nav>
       <UserProfile />
