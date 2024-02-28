@@ -112,3 +112,5 @@ const ScheduleSessionForm = () => {
     </form>
   )
 }
+
+export default ScheduleSessionForm
