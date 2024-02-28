@@ -4,18 +4,20 @@ import { useAuth } from './AuthProvider'
 import { logout } from './firebase-config'
 
 const UserProfile = () => {
-  const [showOptions, setShowOptions] = useState(false);
-  const { currentUser } = useAuth();
+  const [showOptions, setShowOptions] = useState(false)
+  const { currentUser } = useAuth()
+  const user = currentUser
   const accountRef = useRef(null)
+
 
   const handleLogout = async () => {
     try {
-      await logout();
-      console.log('User signed out');
+      await logout()
+      console.log('User signed out')
     } catch (error) {
-      console.error('Sign out error:', error);
+      console.error('Sign out error:', error)
     }
-  };
+  }
 
   const toggleOptions = () => {
     setShowOptions(previousShowOptions => !previousShowOptions)
@@ -36,8 +38,8 @@ const UserProfile = () => {
 
   return (
     <div id="account-container" ref={accountRef}>
-      <div id="profile-button" onClick={() => setShowOptions(!showOptions)}>
-        {currentUser?.email.split("@")[0]}
+      <div id="profile-button" style={{backgroundImage: user.photoURL}} onClick={() => setShowOptions(!showOptions)}>
+        {user.displayName}
       </div>
       {showOptions && (
         <div id="account-dropdown" >
@@ -46,7 +48,7 @@ const UserProfile = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default UserProfile;
+export default UserProfile
