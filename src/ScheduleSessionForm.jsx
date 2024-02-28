@@ -5,7 +5,7 @@ import TimePicker from "react-time-picker"
 import TimezoneSelect from "react-timezone-select"
 
 const ScheduleSessionForm = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date().getDate)
+  const [selectedDate, setSelectedDate] = useState(new Date())
   const [selectedTime, setSelectedTime] = useState(getCurrentTime())
   const [selectedTimezone, setSelectedTimezone] = useState({ value: Intl.DateTimeFormat().resolvedOptions().timeZone })
   const [numberOfHosts, setNumberOfHosts] = useState(1)
