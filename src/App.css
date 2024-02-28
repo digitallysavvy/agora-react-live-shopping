@@ -52,7 +52,7 @@
   cursor: pointer;
 }
 
-button .account-button:hover {
+#logout:hover {
   background-color: #099DFD;
   border: 1px solid #000;
 }
