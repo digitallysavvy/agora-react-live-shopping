@@ -65,7 +65,20 @@ const ScheduleSessionForm = () => {
 
   return(
     <form onSubmit={handleSubmit}>
-      <DatePicker selected={selectedDate} onChange={ date => setSelectedDate(date) } />
+      <TextField 
+        InputLabelProps={{ shrink: true }}
+        InputProps={{
+          inputComponent: ({ inputRef, ...props}) => {
+            <DatePicker 
+              selected={selectedDate} 
+              onChange={ date => setSelectedDate(date) } 
+              customInput={<input ref={inputRef} {...props} />}
+              dateFormat="MMMM d, yyyy"
+            />
+          }
+        }}
+      />
+      
       <TimePicker value={selectedTime} onChange={setSelectedTime} />
       <TimezoneSelect value={selectedTimezone} onChange={setSelectedTimezone} />
       <TextField 
