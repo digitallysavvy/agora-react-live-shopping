@@ -6,8 +6,7 @@ import FirebaseAuthUI from './FirebaseAuthUI'
 import Dashboard from "./Dashboard"
 import ScheduleSession from "./ScheduleSession"
 
-import ThemeProvider from "@mui/material"
-import { CssBaseline } from "@mui/material"
+import { ThemeProvider, CssBaseline } from "@mui/material"
 import './App.css'
 
 const App = () => {
