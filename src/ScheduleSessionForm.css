@@ -1,4 +1,9 @@
+.schedule-session-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .schedule-session-form > * {
-  margin: 0 0 10px;
+  margin: 0 0 25px !important;
 }
 
