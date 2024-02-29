@@ -5,6 +5,7 @@ import TimePicker from "react-time-picker"
 import TimezoneSelect from "react-timezone-select"
 
 import 'react-datepicker/dist/react-datepicker.css'
+import './ScheduleSessionForm.css'
 
 const ScheduleSessionForm = () => {
 
@@ -64,7 +65,7 @@ const ScheduleSessionForm = () => {
 
 
   return(
-    <form onSubmit={handleSubmit}>
+    <form className='schedule-session-form' onSubmit={handleSubmit}>
       <TextField 
         variant='outlined'
         label='Select Date'
