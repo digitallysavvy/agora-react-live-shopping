@@ -4,6 +4,8 @@ import DatePicker from "react-datepicker"
 import TimePicker from "react-time-picker"
 import TimezoneSelect from "react-timezone-select"
 
+import 'react-datepicker/dist/react-datepicker.css'
+
 const ScheduleSessionForm = () => {
 
 
