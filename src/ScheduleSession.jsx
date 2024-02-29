@@ -6,7 +6,7 @@ const ScheduleSession = () => {
   return (
     <>
       <Header displayMenu={false} />
-      <ScheduleSessionForm />
+      {/* <ScheduleSessionForm /> */}
     </>
   )
 }
