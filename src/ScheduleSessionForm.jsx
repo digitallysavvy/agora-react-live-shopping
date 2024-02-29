@@ -103,8 +103,8 @@ const ScheduleSessionForm = () => {
       {isPrivate && (
         <TextField
           label='Private Passcode'
-          type='text'
-          value={password}
+          type='password'
+          value={privatePasscode}
           onChange={ e => setPrivatePasscode(e.target.value) }
         />
       )}
