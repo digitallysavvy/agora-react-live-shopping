@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react"
 import DatePicker from "react-datepicker"
 import TimePicker from "react-time-picker"
 import TimezoneSelect from "react-timezone-select"
-import {TextField} from "@mui/material"
 
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -67,7 +66,8 @@ const ScheduleSessionForm = () => {
   return(
     <form onSubmit={handleSubmit}>
       <TextField 
-        InputLabelProps={{ shrink: true }}
+        variant='outlined'
+        label='Select Date'
         InputProps={{
           inputComponent: ({ inputRef, ...props}) => {
             <DatePicker 
@@ -78,8 +78,14 @@ const ScheduleSessionForm = () => {
             />
           }
         }}
+
       />
-      
+      <DatePicker 
+        selected={selectedDate} 
+        onChange={ date => setSelectedDate(date) } 
+        customInput={<input ref={inputRef} {...props} />}
+        dateFormat="MMMM d, yyyy"
+      />
       <TimePicker value={selectedTime} onChange={setSelectedTime} />
       <TimezoneSelect value={selectedTimezone} onChange={setSelectedTimezone} />
       <TextField 
