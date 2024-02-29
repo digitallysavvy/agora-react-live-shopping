@@ -5,8 +5,10 @@ import TimePicker from "react-time-picker"
 import TimezoneSelect from "react-timezone-select"
 
 const ScheduleSessionForm = () => {
+
+
   const [selectedDate, setSelectedDate] = useState(new Date())
-  const [selectedTime, setSelectedTime] = useState(getCurrentTime())
+  const [selectedTime, setSelectedTime] = useState('12:00')
   const [selectedTimezone, setSelectedTimezone] = useState({ value: Intl.DateTimeFormat().resolvedOptions().timeZone })
   const [numberOfHosts, setNumberOfHosts] = useState(1)
   const [users, setUsers] = useState([])
@@ -17,14 +19,22 @@ const ScheduleSessionForm = () => {
   const [privatePasscode, setPrivatePasscode] = useState('')
 
   useEffect(() => {
+    // load the current time as the initial value for the time picker
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2,'0')
+    const min = now.getMinutes().toString().padStart(2,'0') 
+    setSelectedTime(`${hours}:${min}`)
+  }, [])
+  
+  // fetch users
+  useEffect(() => {
     const fetchUsers = async () => {
-      if (numberOfHosts > 1) {
+      if (numberOfHosts > 1 && users.length == 0) {
         // TODO: Create function to getUsers() from firstore
         // const fetchedUsers =  await getUsers() // getUsers from FB Firestore
         const fetchedUsers = [] // Empty array of users
         setUsers(fetchedUsers)
       }
-
     }
     fetchUsers() // Get list of users for cohost
   }, [numberOfHosts])
@@ -50,13 +60,6 @@ const ScheduleSessionForm = () => {
     setselectedCohosts(typeof value === 'string' ? value.split(',') : value)
   }
 
-  // load the current time as the defualt value for the time picker
-  const getCurrentTime = () => {
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2,'0')
-    const min = now.getMinutes().toString().padStart(2,'0')
-    return `${hours}:${min}`
-  }
 
   return(
     <form onSubmit={handleSubmit}>
