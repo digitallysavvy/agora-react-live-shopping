@@ -6,24 +6,29 @@ import FirebaseAuthUI from './FirebaseAuthUI'
 import Dashboard from "./Dashboard"
 import ScheduleSession from "./ScheduleSession"
 
+import ThemeProvider from "@mui/material"
+import { CssBaseline } from "@mui/material"
 import './App.css'
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Routes>
-          <Route exact path='/login' element={ <FirebaseAuthUI/> }/>
-          {/* Wrap private routes in layout route that checks auth status */}
-          <Route element={<PrivateLayout/>} >
-            <Route exact path='/dashboard' element={ <Dashboard/> }/>
-            <Route exact path='/schedule' element={ <ScheduleSession/> }/>
-          </Route>
-          {/* Redirect all un-known routes to dashboard */}
-          <Route path="*" element={ <Navigate to='/dashboard' replace/> }/>
-        </Routes>
-      </AuthProvider>
-    </BrowserRouter>
+    <ThemeProvider>
+      <CssBaseline />
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route exact path='/login' element={ <FirebaseAuthUI/> }/>
+            {/* Wrap private routes in layout route that checks auth status */}
+            <Route element={<PrivateLayout/>} >
+              <Route exact path='/dashboard' element={ <Dashboard/> }/>
+              <Route exact path='/schedule' element={ <ScheduleSession/> }/>
+            </Route>
+            {/* Redirect all un-known routes to dashboard */}
+            <Route path="*" element={ <Navigate to='/dashboard' replace/> }/>
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
