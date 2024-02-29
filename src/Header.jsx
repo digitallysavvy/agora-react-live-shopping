@@ -9,7 +9,11 @@ const Header = ({ displayMenu = true}) => {
 
   return (
     <header>
-      <img src={agoraLogo} className="logo" alt="Agora logo" />
+      <div
+        onClick={ () => navigate('/') }
+      >
+        <img src={agoraLogo} className="logo" alt="Agora logo" />
+      </div>
       <nav>
         {displayMenu && (
           <button
