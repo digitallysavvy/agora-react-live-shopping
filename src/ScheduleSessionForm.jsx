@@ -83,7 +83,6 @@ const ScheduleSessionForm = () => {
       <DatePicker 
         selected={selectedDate} 
         onChange={ date => setSelectedDate(date) } 
-        customInput={<input ref={inputRef} {...props} />}
         dateFormat="MMMM d, yyyy"
       />
       <TimePicker value={selectedTime} onChange={setSelectedTime} />
