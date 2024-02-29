@@ -7,3 +7,7 @@
   margin: 0 0 25px !important;
 }
 
+.react-time-picker__inputGroup__input {
+  width: auto !important;
+}
+
