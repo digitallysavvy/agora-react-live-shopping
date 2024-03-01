@@ -7,7 +7,47 @@
   margin: 0 0 25px !important;
 }
 
+.schedule-session-form label {
+  color: #fff;
+}
+
+/* Time Picker */
+
+.react-time-picker__wrapper {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+}
+
+.react-time-picker__wrapper > * {
+  margin: 0 25px 0 0;
+}
+
+/* Time picker Icons */
+.react-time-picker__clear-button {
+  background-color: rgba(255,255, 255, 0.25);
+  border: 1px solid #099DFD;
+}
+
+.react-time-picker__clock-button {
+  background-color: rgba(255,255, 255, 0.25);
+  border: 1px solid #099DFD;
+}
+
+.react-time-picker__clear-button :hover {
+  background-color: #099DFD;
+  border: 1px solid #000;
+}
+
+.react-time-picker__clock-button :hover {
+  background-color: #099DFD;
+  border: 1px solid #000;
+}
+
+/* Time picker Input */
+
 .react-time-picker__inputGroup__input {
   width: auto !important;
+  color: #fff;
 }
 
