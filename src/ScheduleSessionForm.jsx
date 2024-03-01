@@ -12,8 +12,6 @@ const ScheduleSessionForm = () => {
 
 
   const [selectedDate, setSelectedDate] = useState(new Date())
-  const [selectedTime, setSelectedTime] = useState('12:00')
-  const [selectedTimezone, setSelectedTimezone] = useState({ value: Intl.DateTimeFormat().resolvedOptions().timeZone })
   const [numberOfHosts, setNumberOfHosts] = useState(1)
   const [users, setUsers] = useState([])
   const [selectedCohosts, setselectedCohosts] = useState([])
@@ -48,8 +46,6 @@ const ScheduleSessionForm = () => {
 
     const sessionDetails = {
       date: selectedDate,
-      time: selectedTime,
-      timeZone: selectedTimezone.value,
       cohosts: selectedCohosts,
       products: selectedProducts,
       visibility: isPrivate ? 'Private' : 'Public',
@@ -68,8 +64,8 @@ const ScheduleSessionForm = () => {
   return(
     <form className='schedule-session-form' onSubmit={handleSubmit}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DateTimePicker
-          label="Controlled picker"
+        <DateTimePicker
+          label="Set Date and Time"
           value={selectedDate}
           onChange={(date) => setSelectedDate(date)}
         />
