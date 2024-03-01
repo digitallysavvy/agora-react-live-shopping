@@ -11,7 +11,7 @@ import './ScheduleSessionForm.css'
 const ScheduleSessionForm = () => {
 
 
-  const [selectedDate, setSelectedDate] = useState(new Date())
+  const [selectedDate, setSelectedDate] = useState()
   const [numberOfHosts, setNumberOfHosts] = useState(1)
   const [users, setUsers] = useState([])
   const [selectedCohosts, setselectedCohosts] = useState([])
@@ -19,14 +19,6 @@ const ScheduleSessionForm = () => {
   const [selectedProducts, setSelectedProducts] = useState([])
   const [isPrivate, setIsPrivate] = useState(false)
   const [privatePasscode, setPrivatePasscode] = useState('')
-
-  useEffect(() => {
-    // load the current time as the initial value for the time picker
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2,'0')
-    const min = now.getMinutes().toString().padStart(2,'0') 
-    setSelectedTime(`${hours}:${min}`)
-  }, [])
   
   // fetch users
   useEffect(() => {
