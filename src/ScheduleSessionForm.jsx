@@ -8,7 +8,7 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import 'react-datepicker/dist/react-datepicker.css'
 import './ScheduleSessionForm.css'
 
-const ScheduleSessionForm = () => {
+const ScheduleSessionForm = ( handleHideForm ) => {
 
 
   const [selectedDate, setSelectedDate] = useState()
@@ -43,6 +43,8 @@ const ScheduleSessionForm = () => {
       visibility: isPrivate ? 'Private' : 'Public',
       privatePasscode: isPrivate ? privatePasscode : null
     }
+    console.log(`Adding Session to schedule: ${sessionDetails}`)
+    handleHideForm()
     // TODO: Create function to store sessionDetails in firestore
     // await scheduleSession(sessionDetails)
   }
@@ -51,7 +53,6 @@ const ScheduleSessionForm = () => {
     const { target: {value} } = event
     setselectedCohosts(typeof value === 'string' ? value.split(',') : value)
   }
-
 
   return(
     <form className='schedule-session-form' onSubmit={handleSubmit}>
