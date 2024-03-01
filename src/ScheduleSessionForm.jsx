@@ -43,7 +43,7 @@ const ScheduleSessionForm = ( handleHideForm ) => {
       visibility: isPrivate ? 'Private' : 'Public',
       privatePasscode: isPrivate ? privatePasscode : null
     }
-    console.log(`Adding Session to schedule: ${sessionDetails}`)
+    console.log(`Adding Session to schedule: ${JSON.stringify(sessionDetails)}`)
     handleHideForm()
     // TODO: Create function to store sessionDetails in firestore
     // await scheduleSession(sessionDetails)
