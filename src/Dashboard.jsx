@@ -37,6 +37,9 @@ function Dashboard () {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
+          width: '75vw',
+          minWidth: '500px',
+          maxWidth: '750px'
         }}
       >
         <ScheduleSessionForm />
