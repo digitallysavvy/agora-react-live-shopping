@@ -4,7 +4,10 @@
   width: 75vw;
   min-width: 500px;
   max-width: 750px;
-  margin: 0 auto;
+  margin: 30px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 25px;
 }
 
 .schedule-session-form > * {
@@ -12,7 +15,12 @@
 }
 
 .schedule-session-form label {
-  color: #fff;
+  color: #2d2929;
+}
+
+.schedule-session-form button[type=submit]{
+  max-width: 20vw;
+  margin: 0 auto !important;
 }
 
 /* Time Picker */

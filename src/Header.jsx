@@ -3,8 +3,9 @@ import React from 'react'
 import agoraLogo from './assets/agora-logo.svg'
 import UserProfile from './UserProfile'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { Button } from '@mui/material'
 
-const Header = ({ displayMenu = true}) => {
+const Header = ({ handleShowForm, displayMenu = true}) => {
   const navigate = useNavigate()
 
   return (
@@ -16,12 +17,9 @@ const Header = ({ displayMenu = true}) => {
       </div>
       <nav>
         {displayMenu && (
-          <button
-            variant='contained'
-            onClick={ () => navigate('/schedule') }
-          >
+          <Button variant='contained' onClick={ handleShowForm }>
             Schedule Session
-          </button>
+          </Button>
         )}
       </nav>
       <UserProfile />
