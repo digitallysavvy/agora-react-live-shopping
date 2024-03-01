@@ -44,7 +44,9 @@ function Dashboard () {
           maxWidth: '750px'
         }}
       >
-        <ScheduleSessionForm />
+        <ScheduleSessionForm
+          handleHideForm={togglePopover}
+        />
       </Popover>
     </>
   )
