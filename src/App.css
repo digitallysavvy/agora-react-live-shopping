@@ -32,6 +32,7 @@ header {
 
 #profile-button {
   width: 85px;
+  min-width: 85px;
   height: 85px;
   color: #000;
   background: #099DFD;
@@ -42,6 +43,12 @@ header {
 #profile-name {
   font-size: smaller;
   margin: 85px 0 0;
+}
+
+nav {
+  display: flex;
+  flex-direction: row-reverse;
+  min-width: 100vw;
 }
 
 #account-dropdown {
