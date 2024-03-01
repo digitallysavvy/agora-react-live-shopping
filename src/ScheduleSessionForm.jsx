@@ -4,14 +4,15 @@ import React, { useEffect, useState } from 'react'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import dayjs from "dayjs";
 
 import 'react-datepicker/dist/react-datepicker.css'
 import './ScheduleSessionForm.css'
 
-const ScheduleSessionForm = ( handleHideForm ) => {
+const ScheduleSessionForm = ({ handlePassBackEvent }) => {
 
 
-  const [selectedDate, setSelectedDate] = useState()
+  const [selectedDate, setSelectedDate] = useState(dayjs())
   const [numberOfHosts, setNumberOfHosts] = useState(1)
   const [users, setUsers] = useState([])
   const [selectedCohosts, setselectedCohosts] = useState([])
@@ -44,7 +45,7 @@ const ScheduleSessionForm = ( handleHideForm ) => {
       privatePasscode: isPrivate ? privatePasscode : null
     }
     console.log(`Adding Session to schedule: ${JSON.stringify(sessionDetails)}`)
-    handleHideForm()
+    handlePassBackEvent(sessionDetails)
     // TODO: Create function to store sessionDetails in firestore
     // await scheduleSession(sessionDetails)
   }
@@ -61,6 +62,7 @@ const ScheduleSessionForm = ( handleHideForm ) => {
           label="Set Date and Time"
           value={selectedDate}
           onChange={(date) => setSelectedDate(date)}
+          renderInput={(params) => <TextField {...params}/> }
         />
       </LocalizationProvider>
       <TextField 

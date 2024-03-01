@@ -11,18 +11,18 @@ import './App.css'
 const App = () => {
   return (
     <BrowserRouter>
-      <AuthProvider>
+      {/* <AuthProvider> */}
         <Routes>
           <Route exact path='/login' element={ <FirebaseAuthUI/> }/>
           {/* Wrap private routes in layout route that checks auth status */}
-          <Route element={<PrivateLayout/>} >
+          {/* <Route element={<PrivateLayout/>} > */}
             <Route exact path='/dashboard' element={ <Dashboard/> }/>
             <Route exact path='/schedule' element={ <ScheduleSession/> }/>
-          </Route>
+          {/* </Route> */}
           {/* Redirect all un-known routes to dashboard */}
           <Route path="*" element={ <Navigate to='/dashboard' replace/> }/>
         </Routes>
-      </AuthProvider>
+      {/* </AuthProvider> */}
     </BrowserRouter>
   )
 }

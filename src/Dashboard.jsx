@@ -6,11 +6,17 @@ import ScheduleSessionForm from "./ScheduleSessionForm"
 // Temp Dashboard placeholder using the default vite react page
 function Dashboard () {
   const [popoverIsVisbile, setPopoverIsVisbile] = useState(false)
+  const [scheduledEvents, setScheduledEvents] = useState([])
 
   const togglePopover = (event) => {
     console.log(`toggle-popover with event: ${event}`)
     setPopoverIsVisbile(!popoverIsVisbile)
   } 
+
+  const handleFormSubmit = (eventDetials) => {
+    setScheduledEvents([...scheduledEvents, eventDetials])
+    togglePopover()
+  }
   
   return (
     <>
@@ -24,11 +30,22 @@ function Dashboard () {
       <p className="read-the-docs">
         Use  the button above to schedule your first session.
       </p>
+      <div id='scheduled-events-container'>
+        {scheduledEvents.map((eventDetails, index) => (
+          <div key={index} className='card'>
+            <h2>Live Session</h2>
+            { console.log(eventDetails) }
+            <p>Date: {eventDetails.date.toString()}</p>
+            <p>Hosts: {eventDetails.cohosts.length++}</p>
+            <p>Visibility: {eventDetails.visibility}</p>
+          </div>
+        ))}
+      </div>
       {popoverIsVisbile && <div id='overlay' onClick={togglePopover}></div>}
       <Popover
         id='schedule-session-container'
         open={popoverIsVisbile}
-        onClose={{togglePopover}}
+        onClose={togglePopover}
         anchorReference='none'
         transformOrigin={{
           vertical: 'center',
@@ -41,11 +58,12 @@ function Dashboard () {
           transform: 'translate(-50%, -50%)',
           width: '75vw',
           minWidth: '500px',
-          maxWidth: '750px'
+          maxWidth: '750px',
+          height: '550px'
         }}
       >
         <ScheduleSessionForm
-          handleHideForm={togglePopover}
+          handlePassBackEvent={handleFormSubmit}
         />
       </Popover>
     </>
