@@ -48,7 +48,8 @@ header {
 nav {
   display: flex;
   flex-direction: row-reverse;
-  min-width: 100vw;
+  min-width: 80vw;
+  margin: 0 10px 0;
 }
 
 #account-dropdown {
