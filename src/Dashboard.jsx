@@ -24,7 +24,7 @@ function Dashboard () {
       <p className="read-the-docs">
         Use  the button above to schedule your first session.
       </p>
-      (popoverIsVisbile && <div id='overlay' onClick={togglePopover}></div>)
+      {popoverIsVisbile && <div id='overlay' onClick={togglePopover}></div>}
       <Popover
         id='schedule-session-container'
         open={popoverIsVisbile}
