@@ -24,16 +24,17 @@
 }
 
 .react-time-picker__wrapper > * {
-  margin: 0 25px 0 0;
+  display: flex;
 }
 
 /* Time picker buttons */
 .react-time-picker__wrapper button {
   background-color: rgba(255,255, 255, 0.25);
   border: 1px solid #099DFD;
+  margin: 0 5px;
 }
 
-.react-time-picker__clear-button button :hover {
+.react-time-picker__wrapper-button button :hover {
   background-color: #099DFD;
   border: 1px solid #000;
 }
@@ -41,7 +42,7 @@
 /* Time picker Input */
 
 .react-time-picker__inputGroup {
-  margin: 0 0 0 25px;
+  margin: 0 25px;
 }
 
 .react-time-picker__inputGroup__input {
