@@ -1,11 +1,54 @@
-import { Chip, FormControl, FormControlLabel, InputLabel, MenuItem, OutlinedInput, Select, Switch, TextField } from "@mui/material"
 import React, { useEffect, useState } from "react"
+import styled from 'styled-components'
 import DatePicker from "react-datepicker"
 import TimePicker from "react-time-picker"
 import TimezoneSelect from "react-timezone-select"
-
+import { Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select, Switch, TextField } from "@mui/material"
 import 'react-datepicker/dist/react-datepicker.css'
-import './ScheduleSessionForm.css'
+
+// Styles
+const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+  min-width: 500px;
+  max-width: 750px;
+  margin: 0 auto;
+`
+
+const FormElement = styled.div`
+  margin: 0 0 25px;
+`
+
+const Label = styled.label`
+  color: #fff;
+`
+
+const TimePickerWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+const TimePickerContainer = styled.div`
+  margin: 0 25px 0 0;
+`
+
+const TimePickerButton = styled.button`
+  background-color: rgba(255,255,255,0.25);
+  border: 1px solid #099DFD;
+
+  &:hover {
+    background-color: #099DFD;
+    border: 1px solid #000;
+  }
+`
+
+const InputGroupInput = styled.input`
+  width: auto;
+  color: #fff;
+`
+
+// Form
 
 const ScheduleSessionForm = () => {
 
@@ -64,77 +107,92 @@ const ScheduleSessionForm = () => {
   }
 
 
-  return(
-    <form className='schedule-session-form' onSubmit={handleSubmit}>
-      <TextField 
-        variant='outlined'
-        label='Select Date'
-        InputProps={{
-          inputComponent: ({ inputRef, ...props}) => {
-            <DatePicker 
-              selected={selectedDate} 
-              onChange={ date => setSelectedDate(date) } 
-              customInput={<input ref={inputRef} {...props} />}
-              dateFormat="MMMM d, yyyy"
-            />
-          }
-        }}
-
-      />
-      <DatePicker 
-        selected={selectedDate} 
-        onChange={ date => setSelectedDate(date) } 
-        dateFormat="MMMM d, yyyy"
-      />
-      <TimePicker value={selectedTime} onChange={setSelectedTime} />
-      <TimezoneSelect value={selectedTimezone} onChange={setSelectedTimezone} />
-      <TextField 
-        type='number'
-        label='Number of Hosts'
-        value={numberOfHosts}
-        onChange={ e => setNumberOfHosts(e.target.value) }
-        inputProps={{ min: 1, max: 16 }}
-      />
-      {/* show the input for cohosts */}
-      {numberOfHosts > 1 && (
-        <FormControl fullWidth>
-          <InputLabel id="cohosts-label">Cohosts:</InputLabel>
-          <Select
-            labelId="cohosts-label"
-            id="cohosts-select"
-            multiple
-            value={selectedCohosts}
-            onChange={handleCohostSelect}
-            input={<OutlinedInput id="cohosts-select-multi-chip" label="Cohosts" />}
-            renderValue={(selected) => (
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
-                { selected.map(value => <Chip key={value} label={value}/>) }
-              </div>
-            )}
-          >
-            {users.map((user) => (
-              <MenuItem key={user.id} value={user.name}>
-                {user.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      )}
-      {/* TODO: Add Product Selection */}
-      <FormControlLabel
-        control={ <Switch checked={isPrivate} onChange={() => setIsPrivate(!isPrivate)} /> }
-        label='Private Event'
-      />
-      {isPrivate && (
-        <TextField
-          label='Private Passcode'
-          type='password'
-          value={privatePasscode}
-          onChange={ e => setPrivatePasscode(e.target.value) }
+  return (
+    <FormContainer onSubmit={handleSubmit}>
+      <FormElement>
+        <Label>Select Date</Label>
+        <TextField 
+          variant='outlined'
+          InputProps={{
+            inputComponent: ({ inputRef, ...props}) => {
+              return (
+                <DatePicker 
+                  selected={selectedDate} 
+                  onChange={ date => setSelectedDate(date) } 
+                  customInput={<input ref={inputRef} {...props} />}
+                  dateFormat="MMMM d, yyyy"
+                />
+              );
+            }
+          }}
         />
+      </FormElement>
+      <FormElement>
+        <TimePickerWrapper>
+          <TimePickerContainer>
+            <Label>Select Time</Label>
+            <TimePicker value={selectedTime} onChange={setSelectedTime} />
+          </TimePickerContainer>
+          <TimezoneSelect value={selectedTimezone} onChange={setSelectedTimezone} />
+        </TimePickerWrapper>
+      </FormElement>
+      <FormElement>
+        <TextField 
+          type='number'
+          label='Number of Hosts'
+          value={numberOfHosts}
+          onChange={ e => setNumberOfHosts(e.target.value) }
+          inputProps={{ min: 1, max: 16 }}
+          variant='outlined'
+        />
+      </FormElement>
+      {numberOfHosts > 1 && (
+        <FormElement>
+          <FormControl fullWidth>
+            <InputLabel id="cohosts-label">Cohosts:</InputLabel>
+            <Select
+              labelId="cohosts-label"
+              id="cohosts-select"
+              multiple
+              value={selectedCohosts}
+              onChange={handleCohostSelect}
+              input={<OutlinedInput id="cohosts-select-multi-chip" label="Cohosts" />}
+              renderValue={(selected) => (
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                  { selected.map(value => <Chip key={value} label={value}/>) }
+                </div>
+              )}
+            >
+              {users.map((user) => (
+                <MenuItem key={user.id} value={user.name}>
+                  {user.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </FormElement>
       )}
-      <button type='submit'>Schedule</button>
-    </form>
+      <FormElement>
+        <FormControlLabel
+          control={ <Switch checked={isPrivate} onChange={() => setIsPrivate(!isPrivate)} /> }
+          label='Private Event'
+        />
+      </FormElement>
+      {isPrivate && (
+        <FormElement>
+          <TextField
+            label='Private Passcode'
+            type='password'
+            value={privatePasscode}
+            onChange={ e => setPrivatePasscode(e.target.value) }
+            variant='outlined'
+          />
+        </FormElement>
+      )}
+      <FormElement>
+        <button type='submit'>Schedule</button>
+      </FormElement>
+    </FormContainer>
   )
 }
 
