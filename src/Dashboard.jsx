@@ -13,7 +13,9 @@ function Dashboard () {
   
   return (
     <>
-      <Header />
+      <Header 
+        handleShowForm={togglePopover}
+      />
       <h1>Live Shopping Sessions</h1>
       <div className="card">
         You don't have any sessions scheduled, let's change that.
