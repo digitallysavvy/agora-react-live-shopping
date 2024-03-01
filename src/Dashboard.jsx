@@ -5,10 +5,11 @@ import ScheduleSessionForm from "./ScheduleSessionForm"
 
 // Temp Dashboard placeholder using the default vite react page
 function Dashboard () {
-  const [visbile, setVisibile] = useState(false)
+  const [popoverIsVisbile, setPopoverIsVisbile] = useState(false)
 
   const togglePopover = (event) => {
-    setVisibile(!visbile)
+    console.log(`toggle-popover with event: ${event}`)
+    setPopoverIsVisbile(!popoverIsVisbile)
   } 
   
   return (
@@ -23,9 +24,10 @@ function Dashboard () {
       <p className="read-the-docs">
         Use  the button above to schedule your first session.
       </p>
+      (popoverIsVisbile && <div id='overlay' onClick={togglePopover}></div>)
       <Popover
         id='schedule-session-container'
-        open={visbile}
+        open={popoverIsVisbile}
         onClose={{togglePopover}}
         anchorReference='none'
         transformOrigin={{

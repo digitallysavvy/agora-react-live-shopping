@@ -1,9 +1,8 @@
 .schedule-session-form {
   display: flex;
   flex-direction: column;
-  width: 75vw;
-  min-width: 500px;
-  max-width: 750px;
+  width: 50vw;
+  max-width: 650px;
   margin: 30px auto;
   background: #fff;
   padding: 25px;
