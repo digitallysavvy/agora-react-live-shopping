@@ -1,8 +1,9 @@
 import { Chip, FormControl, FormControlLabel, InputLabel, MenuItem, OutlinedInput, Select, Switch, TextField } from "@mui/material"
 import React, { useEffect, useState } from "react"
-import DatePicker from "react-datepicker"
-import TimePicker from "react-time-picker"
-import TimezoneSelect from "react-timezone-select"
+
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
 import 'react-datepicker/dist/react-datepicker.css'
 import './ScheduleSessionForm.css'
@@ -66,28 +67,13 @@ const ScheduleSessionForm = () => {
 
   return(
     <form className='schedule-session-form' onSubmit={handleSubmit}>
-      <TextField 
-        variant='outlined'
-        label='Select Date'
-        InputProps={{
-          inputComponent: ({ inputRef, ...props}) => {
-            <DatePicker 
-              selected={selectedDate} 
-              onChange={ date => setSelectedDate(date) } 
-              customInput={<input ref={inputRef} {...props} />}
-              dateFormat="MMMM d, yyyy"
-            />
-          }
-        }}
-
-      />
-      <DatePicker 
-        selected={selectedDate} 
-        onChange={ date => setSelectedDate(date) } 
-        dateFormat="MMMM d, yyyy"
-      />
-      <TimePicker value={selectedTime} onChange={setSelectedTime} />
-      <TimezoneSelect value={selectedTimezone} onChange={setSelectedTimezone} />
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DateTimePicker
+          label="Controlled picker"
+          value={value}
+          onChange={(newValue) => setValue(newValue)}
+        />
+      </LocalizationProvider>
       <TextField 
         type='number'
         label='Number of Hosts'
