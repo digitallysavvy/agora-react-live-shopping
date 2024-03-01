@@ -70,8 +70,8 @@ const ScheduleSessionForm = () => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateTimePicker
           label="Controlled picker"
-          value={value}
-          onChange={(newValue) => setValue(newValue)}
+          value={selectedDate}
+          onChange={(date) => setSelectedDate(date)}
         />
       </LocalizationProvider>
       <TextField 
