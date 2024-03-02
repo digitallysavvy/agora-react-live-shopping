@@ -22,7 +22,7 @@ const Header = ({ handleShowForm, displayMenu = true}) => {
           </Button>
         )}
       </nav>
-      {/* <UserProfile /> */}
+      <UserProfile />
     </header>
   )
 }
