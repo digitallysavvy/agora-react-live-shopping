@@ -2,6 +2,14 @@ import React, { useState } from 'react'
 import Header from './Header'
 import { Popover } from '@mui/material'
 import ScheduleSessionForm from "./ScheduleSessionForm"
+import dayjs from "dayjs"
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.extend(localizedFormat)
 
 // Temp Dashboard placeholder using the default vite react page
 function Dashboard () {
@@ -24,20 +32,26 @@ function Dashboard () {
         handleShowForm={togglePopover}
       />
       <h1>Live Shopping Sessions</h1>
-      <div className="card">
-        You don't have any sessions scheduled, let's change that.
-      </div>
-      <p className="read-the-docs">
-        Use  the button above to schedule your first session.
-      </p>
+      {Boolean(scheduledEvents.length == 0) && (
+        <p className="read-the-docs">
+          You don't have any sessions scheduled, let's change that. <br/>
+          Use  the button above to schedule your first session.
+        </p>
+      )}
       <div id='scheduled-events-container'>
         {scheduledEvents.map((eventDetails, index) => (
           <div key={index} className='card'>
             <h2>Live Session</h2>
-            { console.log(eventDetails) }
-            <p>Date: {eventDetails.date.toString()}</p>
-            <p>Hosts: {eventDetails.cohosts.length++}</p>
-            <p>Visibility: {eventDetails.visibility}</p>
+            <p><strong>Date:</strong><br/>&ensp;{eventDetails.date.format('LL LT')}</p>
+            {Boolean(scheduledEvents.length == 0) && (
+              <p>
+                <strong>Cohosts:</strong><br/>
+                {eventDetails.cohosts.map((chohost, i) => {
+                  <span key={i}>{chohost}</span>
+                })}
+              </p>
+            )}
+            <p><strong>Visibility:</strong><br/>&ensp;{eventDetails.visibility}</p>
           </div>
         ))}
       </div>

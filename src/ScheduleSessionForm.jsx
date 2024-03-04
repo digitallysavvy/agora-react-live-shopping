@@ -1,10 +1,10 @@
 import { Chip, FormControl, FormControlLabel, InputLabel, MenuItem, OutlinedInput, Select, Switch, TextField } from "@mui/material"
 import React, { useEffect, useState } from 'react'
 
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import dayjs from "dayjs";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
+import dayjs from "dayjs"
 
 import 'react-datepicker/dist/react-datepicker.css'
 import './ScheduleSessionForm.css'

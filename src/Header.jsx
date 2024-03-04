@@ -11,6 +11,7 @@ const Header = ({ handleShowForm, displayMenu = true}) => {
   return (
     <header>
       <div
+        style={{ display: 'flex' }}
         onClick={ () => navigate('/') }
       >
         <img src={agoraLogo} className="logo" alt="Agora logo" />
