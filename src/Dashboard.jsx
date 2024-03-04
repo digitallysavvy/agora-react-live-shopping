@@ -3,12 +3,9 @@ import Header from './Header'
 import { Popover } from '@mui/material'
 import ScheduleSessionForm from "./ScheduleSessionForm"
 import dayjs from "dayjs"
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
-dayjs.extend(utc)
-dayjs.extend(timezone)
+// extend day js for localized dates
 dayjs.extend(localizedFormat)
 
 // Temp Dashboard placeholder using the default vite react page
