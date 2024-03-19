@@ -103,3 +103,21 @@ nav {
   flex-flow: row wrap;
   justify-content: space-evenly;
 }
+
+.live-stream-event-card-buttons button {
+  margin: 0 5px;
+}
+
+.edit-event-button {
+  border: 2px #099DFD;
+}
+
+.edit-event-button :hover{
+  background-color: #099DFD;
+  border: 0px;
+}
+
+.go-live-button{
+  background-color: #099DFD;
+  border: 0px;
+}

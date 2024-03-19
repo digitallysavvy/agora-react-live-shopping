@@ -49,6 +49,10 @@ function Dashboard () {
               </p>
             )}
             <p><strong>Visibility:</strong><br/>&ensp;{eventDetails.visibility}</p>
+            <div class='live-stream-event-card-buttons'>
+              <button class='edit-event-button'>Edit</button>
+              <button class='go-live-button'>Go Live!</button>
+            </div>
           </div>
         ))}
       </div>
